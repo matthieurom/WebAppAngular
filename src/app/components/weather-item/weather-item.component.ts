@@ -12,4 +12,8 @@ export class WeatherItemComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  getImgUrl(param: string) {
+    return "http://openweathermap.org/img/w/" + param + ".png";
+  }
 }

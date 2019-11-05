@@ -1,5 +1,7 @@
 <li key="{city.name}" class="city">
-  <div class="city-weatherIcon"></div>
+  <div class="city-weatherIcon">
+    <img [src]="getImgUrl(weather.icon)" />
+  </div>
   <div class="city-name">
     <div class="city-title">{{ weather.name }}, {{ weather.country }}</div>
     <div class="city-infos">
