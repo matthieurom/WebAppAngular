@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Weather } from "../../model/Weather";
+import { Store } from "@ngrx/store";
+import { AppState } from "../../app.state";
+import * as WeatherActions from "../../actions/weather.actions";
 
 @Component({
   selector: "app-remove-weather",
@@ -12,12 +15,11 @@ export class RemoveWeatherComponent implements OnInit {
   isSelected: boolean = false;
   weatherToRemove: Weather;
 
-  constructor() {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit() {}
 
   onClick() {
-    console.log("weather is :", this.weather);
     this.weatherToRemove = this.weather;
     if (this.isSelected) {
       this.weatherToRemove = undefined;
@@ -27,16 +29,20 @@ export class RemoveWeatherComponent implements OnInit {
       this.weatherToRemove = this.weather;
     }
 
-    console.log(
-      "weather selected in remove is FINALLY :",
-      this.weatherToRemove
-    );
-
     this.deleteWeather.emit(this.weatherToRemove);
+    console.log("wheater clicked ", this.weatherToRemove);
   }
 
   onUnFocus() {
     this.isSelected = false;
     // this.weatherToRemove = undefined;
+  }
+
+  removeCity() {
+    console.log("City to remove is :", this.weatherToRemove);
+    this.store.dispatch({
+      type: WeatherActions.REMOVE_WEATHER,
+      payload: this.weatherToRemove
+    });
   }
 }

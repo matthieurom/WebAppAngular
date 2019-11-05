@@ -49,13 +49,4 @@ export class SettingsComponent implements OnInit {
       });
     });
   }
-
-  deleteWeather(weather: Weather) {
-    console.log("REMOVE IS CLICKED");
-    console.log("IN DELETE WEATHER :", weather);
-    // this.store.dispatch({
-    //   type: WeatherActions.REMOVE_WEATHER,
-    //   payload: weather
-    // });
-  }
 }

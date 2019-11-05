@@ -8,6 +8,15 @@
     (focusout)="onUnFocus()"
     tabindex="0"
   >
-    {{ weather.name }}
+    <span class="city-name">{{ weather.name }}</span>
+    <button
+      [ngClass]="{
+        btn: true,
+        'btn-unselected': !isSelected
+      }"
+      (click)="removeCity()"
+    >
+      Remove
+    </button>
   </div>
 </div>

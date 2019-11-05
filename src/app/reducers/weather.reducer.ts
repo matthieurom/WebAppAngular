@@ -1,6 +1,5 @@
 import { Action } from "@ngrx/store";
 import { Weather } from "../model/Weather";
-import { WeatherGlobal } from "../model/WeatherGlobal";
 import * as WeatherActions from "./../actions/weather.actions";
 
 const initialState: Weather[] = [
@@ -51,10 +50,15 @@ export function reducer(state = initialState, action: WeatherActions.Actions) {
     case WeatherActions.ADD_WEATHER:
       return [...state, action.payload];
     case WeatherActions.REMOVE_WEATHER:
+      console.log("STATE IS IN REDUCER :", state);
       newWeather = state.filter(
         weather => weather.name !== action.payload.name
       );
-      return [...state, newWeather];
+      console.log("neweather in reducer is ", newWeather);
+      let weatherNew = [];
+      newWeather.map(w => weatherNew.push(w));
+      console.log("with map  :", weatherNew[1]);
+      return [...newWeather];
     // case WeatherActions.ADD_WEATHER_REMOVE:
     //   return [...state, weatherToRemove: action.payload];
     default:
