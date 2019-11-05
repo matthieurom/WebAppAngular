@@ -14,20 +14,30 @@ import { Action } from "rxjs/internal/scheduler/Action";
 })
 export class SettingsComponent implements OnInit {
   weathers: Observable<Weather[]>;
+  isScrollable: boolean = false;
 
   constructor(
     private weatherService: WeatherService,
     private store: Store<AppState>
   ) {
     this.weathers = store.select("weather");
-    console.log("weathers in settings is :", this.weathers);
   }
 
-  ngOnInit() {}
+  ngDoCheck() {
+    this.checkScrollable();
+  }
+  checkScrollable() {
+    let weatherLength;
+    this.store.select("weather").subscribe(w => (weatherLength = w.length));
+    if (weatherLength > 4) {
+      this.isScrollable = true;
+    }
+
+    console.log("isScrollabe :", this.isScrollable);
+  }
 
   addWeather(city: string) {
     this.weatherService.addWeather(city).subscribe(weather => {
-      console.log(weather);
       const newWeather: Weather = {
         name: weather.name,
         country: weather.sys.country,
@@ -42,7 +52,6 @@ export class SettingsComponent implements OnInit {
         }
       };
 
-      console.log("New weather form api is : ", newWeather);
       this.store.dispatch({
         type: WeatherActions.ADD_WEATHER,
         payload: newWeather

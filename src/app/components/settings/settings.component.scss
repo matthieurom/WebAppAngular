@@ -20,9 +20,14 @@
       border: 1px solid $color-black;
       border-radius: 3px;
       box-shadow: 0px 0px 5px 5px rgba($color-black, 0.1);
+      max-height: 20rem;
     }
     .btn {
       align-self: center;
     }
   }
+}
+
+.scrollable {
+  overflow-y: scroll;
 }

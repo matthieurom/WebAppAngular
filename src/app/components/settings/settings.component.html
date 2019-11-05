@@ -6,7 +6,12 @@
 
   <div class="settings-remove">
     <h2>Remove a city</h2>
-    <div class="list-cities">
+    <div
+      [ngClass]="{
+        'list-cities': true,
+        scrollable: isScrollable
+      }"
+    >
       <app-remove-weather
         *ngFor="let weather of weathers | async"
         [weather]="weather"
