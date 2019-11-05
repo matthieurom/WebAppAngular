@@ -59,8 +59,6 @@ export function reducer(state = initialState, action: WeatherActions.Actions) {
       newWeather.map(w => weatherNew.push(w));
       console.log("with map  :", weatherNew[1]);
       return [...newWeather];
-    // case WeatherActions.ADD_WEATHER_REMOVE:
-    //   return [...state, weatherToRemove: action.payload];
     default:
       return state;
   }
