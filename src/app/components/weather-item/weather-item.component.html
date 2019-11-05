@@ -1,0 +1,17 @@
+<li key="{city.name}" class="city">
+  <div class="city-weatherIcon"></div>
+  <div class="city-name">
+    <div class="city-title">{{ weather.name }}, {{ weather.country }}</div>
+    <div class="city-infos">
+      <div class="city-infos-1">
+        <span>Humidity : {{ weather.infos.humidity }} %</span>
+        <span>T°(C) max : {{ weather.infos.temp_max }} °C</span>
+      </div>
+      <div class="city-infos-2">
+        <span>Pressure : {{ weather.infos.pressure }} hPa</span>
+        <span>T°(C) min : {{ weather.infos.temp_min }} </span>
+      </div>
+    </div>
+  </div>
+  <div class="city-temp">{{ weather.infos.temp }}°C</div>
+</li>

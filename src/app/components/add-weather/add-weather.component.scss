@@ -1,0 +1,14 @@
+@import "../../_variables/index.scss";
+
+.add {
+  display: flex;
+  flex-direction: column;
+  form {
+    display: flex;
+    align-items: center;
+    .input-city {
+      flex-grow: 1;
+      font-size: 1rem;
+    }
+  }
+}

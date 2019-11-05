@@ -1,0 +1,13 @@
+<div class="remove">
+  <div
+    [ngClass]="{
+      selected: isSelected,
+      city: true
+    }"
+    (click)="onClick()"
+    (focusout)="onUnFocus()"
+    tabindex="0"
+  >
+    {{ weather.name }}
+  </div>
+</div>

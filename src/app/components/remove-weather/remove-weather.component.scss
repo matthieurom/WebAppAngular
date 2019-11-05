@@ -1,0 +1,26 @@
+@import "../../_variables/index.scss";
+
+.remove {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .city {
+    font-size: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      font-size: 1.15rem;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.selected {
+  background-color: rgba($color-primary, 0.5);
+}

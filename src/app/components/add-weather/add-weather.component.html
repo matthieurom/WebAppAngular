@@ -1,0 +1,13 @@
+<div class="add">
+  <form class="add-form" (ngSubmit)="onSubmit()">
+    <input
+      type="text"
+      name="city"
+      [(ngModel)]="city"
+      placeholder="Add a city ..."
+      class="input-city"
+      autocomplete="off"
+    />
+    <input class="btn" value="Submit" type="submit" />
+  </form>
+</div>

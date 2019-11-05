@@ -1,0 +1,53 @@
+@import "../../_variables/index.scss";
+
+.city {
+  display: flex;
+  padding: 1rem 0;
+  border: 1px solid rgb(119, 119, 119);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+.city-weatherIcon {
+  flex: 1;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  .weatherIcon {
+    width: 70px;
+  }
+}
+
+.city-name {
+  flex: 4;
+  .city-title {
+    border-bottom: 1px solid $color-grey;
+    font-size: 1rem;
+  }
+  .city-infos {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    &-1 {
+      display: flex;
+      flex-direction: column;
+    }
+    span {
+      margin-right: 5rem;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.city-temp {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  font-size: 3rem;
+  font-weight: 100;
+  align-self: center;
+}

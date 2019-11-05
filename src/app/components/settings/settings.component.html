@@ -1,0 +1,22 @@
+<div class="settings">
+  <div class="settings-add">
+    <h2>Add a city</h2>
+    <app-add-weather (addWeather)="addWeather($event)"></app-add-weather>
+  </div>
+
+  <div class="settings-remove">
+    <h2>Remove a city</h2>
+    <form class="remove-form">
+      <div class="list-cities">
+        <app-remove-weather
+          *ngFor="let weather of weathers | async"
+          [weather]="weather"
+        ></app-remove-weather>
+      </div>
+
+      <button class="btn" (click)="deleteWeather($event)">
+        Remove
+      </button>
+    </form>
+  </div>
+</div>
