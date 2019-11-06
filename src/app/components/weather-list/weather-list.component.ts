@@ -11,13 +11,22 @@ import { AppState } from "../../app.state";
 })
 export class WeatherListComponent implements OnInit {
   weathers: Observable<Weather[]>;
+  p: number = 1;
+  listWeathers: Weather[];
+  inputCity: string = "";
 
   constructor(private store: Store<AppState>) {
     this.weathers = store.select("weather");
-    console.log("weathers is :", this.weathers);
-    const getWeathers = store.select(state => state.weather);
-    console.log("GetWeather : ", getWeathers);
+
+    console.log("listWeathers :", this.listWeathers);
   }
 
   ngOnInit() {}
+
+  ngDoCheck() {
+    this.weathers.subscribe(w => (this.listWeathers = w));
+    this.listWeathers = this.listWeathers.filter(w =>
+      w.name.includes(this.inputCity)
+    );
+  }
 }

@@ -15,6 +15,7 @@ import { Action } from "rxjs/internal/scheduler/Action";
 export class SettingsComponent implements OnInit {
   weathers: Observable<Weather[]>;
   isScrollable: boolean = false;
+  isLoading: boolean = false;
 
   constructor(
     private weatherService: WeatherService,
@@ -22,6 +23,8 @@ export class SettingsComponent implements OnInit {
   ) {
     this.weathers = store.select("weather");
   }
+
+  ngOnInit() {}
 
   ngDoCheck() {
     this.checkScrollable();
@@ -37,25 +40,37 @@ export class SettingsComponent implements OnInit {
   }
 
   addWeather(city: string) {
-    this.weatherService.addWeather(city).subscribe(weather => {
-      const newWeather: Weather = {
-        name: weather.name,
-        country: weather.sys.country,
-        weather: weather.weather[0].main,
-        icon: weather.weather[0].icon,
-        infos: {
-          humidity: weather.main.humidity,
-          pressure: weather.main.pressure,
-          temp: Math.round(weather.main.temp - 273),
-          temp_max: Math.round(weather.main.temp_max - 273),
-          temp_min: Math.round(weather.main.temp_min - 273)
-        }
-      };
+    this.isLoading = true;
+    try {
+      this.weatherService.addWeather(city).subscribe(weather => {
+        console.log("weather in add is :", weather);
+        if (weather) {
+          const newWeather: Weather = {
+            name: weather.name,
+            country: weather.sys.country,
+            weather: weather.weather[0].main,
+            icon: weather.weather[0].icon,
+            infos: {
+              humidity: weather.main.humidity,
+              pressure: weather.main.pressure,
+              temp: Math.round(weather.main.temp - 273),
+              temp_max: Math.round(weather.main.temp_max - 273),
+              temp_min: Math.round(weather.main.temp_min - 273)
+            }
+          };
 
-      this.store.dispatch({
-        type: WeatherActions.ADD_WEATHER,
-        payload: newWeather
+          this.store.dispatch({
+            type: WeatherActions.ADD_WEATHER,
+            payload: newWeather
+          });
+          this.isLoading = false;
+          console.log("isLoading addweather end", this.isLoading);
+        } else {
+          console.log("ERROR ");
+        }
       });
-    });
+    } catch (e) {
+      console.log("ERROR IS CATCH IN ADDWEATHER");
+    }
   }
 }

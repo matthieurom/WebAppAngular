@@ -1,2 +1,11 @@
-<app-weather-item *ngFor="let weather of weathers | async" [weather]="weather">
+<input type="text" placeholder="Search a city" [(ngModel)]="inputCity" />
+<app-weather-item
+  *ngFor="
+    let weather of listWeathers | paginate: { itemsPerPage: 5, currentPage: p }
+  "
+  [weather]="weather"
+>
 </app-weather-item>
+<div class="pagination">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

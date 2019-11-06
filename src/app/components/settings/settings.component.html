@@ -1,5 +1,8 @@
 <div class="settings">
   <div class="settings-add">
+    <p [ngClass]="{ loader: !isLoading, 'is-loading': isLoading }">
+      Loading ...
+    </p>
     <h2>Add a city</h2>
     <app-add-weather (addWeather)="addWeather($event)"></app-add-weather>
   </div>

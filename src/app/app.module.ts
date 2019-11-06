@@ -10,10 +10,10 @@ import { WeatherItemComponent } from "./components/weather-item/weather-item.com
 import { HeaderComponent } from "./components/header/header.component";
 import { SettingsComponent } from "./components/settings/settings.component";
 import { AddWeatherComponent } from "./components/add-weather/add-weather.component";
-
+import { NgxPaginationModule } from "ngx-pagination";
 import { StoreModule } from "@ngrx/store";
 import { reducer } from "./reducers/weather.reducer";
-import { RemoveWeatherComponent } from './components/remove-weather/remove-weather.component';
+import { RemoveWeatherComponent } from "./components/remove-weather/remove-weather.component";
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { RemoveWeatherComponent } from './components/remove-weather/remove-weath
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    StoreModule.forRoot({ weather: reducer })
+    StoreModule.forRoot({ weather: reducer }),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

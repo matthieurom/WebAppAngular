@@ -31,3 +31,13 @@
 .scrollable {
   overflow-y: scroll;
 }
+
+.is-loading {
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.loader {
+  display: none;
+  font-size: 1rem;
+}
