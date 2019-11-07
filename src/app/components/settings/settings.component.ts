@@ -17,6 +17,7 @@ export class SettingsComponent implements OnInit {
   isScrollable: boolean = false;
   isLoading: boolean = false;
   errorMessage;
+  errorInput: boolean = false;
 
   constructor(
     private weatherService: WeatherService,
@@ -61,10 +62,14 @@ export class SettingsComponent implements OnInit {
           payload: newWeather
         });
         this.isLoading = false;
+        this.errorInput = false;
         console.log("isLoading addweather end", this.isLoading);
       },
       error => {
+        this.errorInput = true;
         this.errorMessage = error;
+        this.isLoading = false;
+
         console.log("error is", this.errorMessage);
       }
     );
