@@ -10,7 +10,7 @@ $color-background: rgb(233, 233, 233);
   margin-bottom: 3rem;
   box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
   img {
-    width: 40px;
+    width: 90px;
   }
 
   &-appName {
@@ -19,6 +19,7 @@ $color-background: rgb(233, 233, 233);
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-right: 90px;
   }
   a:link,
   a:visited {

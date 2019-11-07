@@ -1,4 +1,7 @@
-<input type="text" placeholder="Search a city" [(ngModel)]="inputCity" />
+<div class="search-input">
+  <input type="text" placeholder="Search a city" [(ngModel)]="inputCity" />
+  <label>Search a city</label>
+</div>
 <app-weather-item
   *ngFor="
     let weather of listWeathers | paginate: { itemsPerPage: 5, currentPage: p }
