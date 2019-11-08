@@ -5,7 +5,6 @@ import { Observable } from "rxjs";
 import { Store } from "@ngrx/store";
 import { AppState } from "../../app.state";
 import * as WeatherActions from "../../actions/weather.actions";
-import { Action } from "rxjs/internal/scheduler/Action";
 
 @Component({
   selector: "app-settings",
@@ -63,14 +62,11 @@ export class SettingsComponent implements OnInit {
         });
         this.isLoading = false;
         this.errorInput = false;
-        console.log("isLoading addweather end", this.isLoading);
       },
       error => {
         this.errorInput = true;
         this.errorMessage = error;
         this.isLoading = false;
-
-        console.log("error is", this.errorMessage);
       }
     );
   }
