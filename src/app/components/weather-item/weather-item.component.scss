@@ -9,6 +9,7 @@
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.3s ease;
+  min-width: 25rem;
 
   &:hover {
     transform: scale(1.05);
@@ -57,4 +58,12 @@
   font-size: 3rem;
   font-weight: 100;
   align-self: center;
+}
+
+@media (max-width: 700px) {
+  .city {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
