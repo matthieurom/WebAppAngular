@@ -17,8 +17,6 @@ export class WeatherListComponent implements OnInit {
 
   constructor(private store: Store<AppState>) {
     this.weathers = store.select("weather");
-
-    console.log("listWeathers :", this.listWeathers);
   }
 
   ngOnInit() {}

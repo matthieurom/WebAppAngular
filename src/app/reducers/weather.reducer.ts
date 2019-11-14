@@ -50,14 +50,11 @@ export function reducer(state = initialState, action: WeatherActions.Actions) {
     case WeatherActions.ADD_WEATHER:
       return [...state, action.payload];
     case WeatherActions.REMOVE_WEATHER:
-      console.log("STATE IS IN REDUCER :", state);
       newWeather = state.filter(
         weather => weather.name !== action.payload.name
       );
-      console.log("neweather in reducer is ", newWeather);
       let weatherNew = [];
       newWeather.map(w => weatherNew.push(w));
-      console.log("with map  :", weatherNew[1]);
       return [...newWeather];
     default:
       return state;

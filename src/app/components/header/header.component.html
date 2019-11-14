@@ -7,7 +7,7 @@
   <div class="header-appName">
     <h1>WeatherApp</h1>
     <nav>
-      <a routerLink="/" (click)="handleChange()"
+      <a routerLink="/"
         ><span
           [ngClass]="{
             'current-page': onHomePage
@@ -16,7 +16,7 @@
         ></a
       >
       |
-      <a routerLink="/settings" (click)="handleChange()"
+      <a routerLink="/settings"
         ><span
           [ngClass]="{
             'current-page': !onHomePage
