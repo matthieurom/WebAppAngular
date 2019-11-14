@@ -3,6 +3,7 @@
     <input
       type="text"
       name="city"
+      [attr.disabled]="isLoading ? '' : null"
       [(ngModel)]="city"
       placeholder="Add a city ..."
       class="input-city"

@@ -4,7 +4,10 @@
       Loading ...
     </p>
     <h2>Add a city</h2>
-    <app-add-weather (addWeather)="addWeather($event)"></app-add-weather>
+    <app-add-weather
+      (addWeather)="addWeather($event)"
+      [isLoading]="isLoading"
+    ></app-add-weather>
     <p [ngClass]="{ hide: !errorInput, error: errorInput }">
       City name is invalid
     </p>

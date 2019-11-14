@@ -23,6 +23,8 @@ export class WeatherListComponent implements OnInit {
 
   ngDoCheck() {
     this.weathers.subscribe(w => (this.listWeathers = w));
+
+    // Filtrer selon la valeur de l'input tapé par l'user
     this.listWeathers = this.listWeathers.filter(w =>
       w.name.includes(this.inputCity)
     );
