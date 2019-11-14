@@ -14,7 +14,6 @@ export class HeaderComponent implements OnInit {
   }
 
   ngDoCheck() {
-    console.log("route is", this.router.url);
     if (this.router.url === "/") {
       this.onHomePage = true;
     }
